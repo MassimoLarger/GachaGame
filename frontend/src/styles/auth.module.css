@@ -269,7 +269,7 @@
     animation: none;
   }
   
-  * {
+  :global(*) {
     transition: none !important;
   }
 }
