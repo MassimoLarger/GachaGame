@@ -1,0 +1,475 @@
+/* Loading Screen */
+.loadingScreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: black;
+  opacity: 1;
+  z-index: 9999;
+  transition: opacity 0.5s ease;
+}
+
+/* Home Screen */
+.gameContainer {
+  background: url('/Background/Gacha.png') no-repeat center center/cover;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-shadow: 0 0 10px #000;
+}
+
+.gameTitle {
+  font-size: 3rem;
+  color: #00ccff;
+  margin-bottom: 20px;
+}
+
+.startText {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+.serverSelector {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 12px 20px;
+  border-radius: 8px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.serverSelector span {
+  font-size: 1rem;
+}
+
+.serverSelector button {
+  padding: 6px 12px;
+  border: none;
+  background-color: #00ccff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Lobby Screen */
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.gameLobby {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: auto 1fr;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+/* HUD Superior */
+.topBar {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: auto 1fr;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.header {
+  background-color: #2c3e50df;
+  color: white;
+  padding: 5px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  grid-column: 1 / 4;
+  grid-row: 1;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+  z-index: 10;
+}
+
+.playerInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.playerInfo img {
+  width: 50px;
+  height: 50px;
+  background-color: #bdbdbd7d;
+  border-radius: 50%;
+  border: 2px solid #000000;
+}
+
+.playerDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.playerName {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.vipLevel {
+  font-size: 0.8em;
+  color: #ecf0f1;
+  background-color: #c0392b;
+  padding: 2px 5px;
+  border-radius: 3px;
+}
+
+.currencyBar {
+  display: flex;
+  gap: 15px;
+}
+
+.currencyItem {
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 5px 20px;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.iconGold,
+.iconDiamond {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.addButton {
+  background-color: #27ae60;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2em;
+  line-height: 1;
+  cursor: pointer;
+  margin-left: 8px;
+}
+
+/* Main Content */
+.mainContent {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+/* Personaje Principal */
+.bgCharacter {
+  position: absolute;
+  left: 200px;
+  bottom: 42px;
+  height: 100%;
+  max-height: 600px;
+}
+
+/* Menú Lateral Izquierdo */
+.sideMenu {
+  position: absolute;
+  top: 120px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sideMenu button {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  padding: 8px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Menú Derecho */
+.menuRight {
+  position: absolute;
+  top: 80px;
+  right: 50px;
+  display: grid;
+  grid-template-columns: repeat(1, auto);
+  gap: 20px;
+}
+
+.menuRight button {
+  background-color: #ff69b4cc;
+  border: none;
+  padding: 50px 100px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Botones Inferiores Centrales */
+.menuBottom {
+  position: absolute;
+  bottom: 80px;
+  right: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.menuBottom button {
+  background-color: #ffffffcc;
+  border: none;
+  padding: 50px 94px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Barra Inferior */
+.bottomBar {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 12px;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: space-around;
+  color: white;
+}
+
+.bottomBar button {
+  background: none;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Campaign Screen */
+.campaignContainer {
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  color: #ecf0f1;
+  overflow-x: hidden;
+  text-align: center;
+  background: rgba(22, 33, 62, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.5);
+  max-width: 95%;
+  width: 850px;
+  box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.campaignContainer::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(233, 69, 96, 0.1) 0%, transparent 70%);
+  animation: rotate-gradient 20s linear infinite;
+  z-index: -1;
+}
+
+@keyframes rotate-gradient {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.campaignContainer h1,
+.campaignContainer h2 {
+  background: linear-gradient(45deg, #e94560, #f9c74f);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.campaignContainer h1 {
+  font-size: 2.8em;
+  margin-top: 0;
+  letter-spacing: 1px;
+}
+
+.campaignContainer h2 {
+  font-size: 2em;
+  margin-top: 5px;
+}
+
+.stageMap,
+.gameArea {
+  background-color: rgba(15, 52, 96, 0.7);
+  border: 3px solid #e94560;
+  padding: 25px;
+  margin-bottom: 30px;
+  border-radius: 15px;
+  box-shadow: 
+    inset 0 0 15px rgba(0,0,0,0.5),
+    0 0 20px rgba(233, 69, 96, 0.3);
+  transition: all 0.3s ease;
+}
+
+.gameArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+  position: relative;
+}
+
+.box {
+  width: 490px;
+  height: 490px;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(10, 31, 51, 0.8);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 
+    inset 0 0 25px rgba(0,0,0,0.8),
+    0 10px 30px rgba(0,0,0,0.6);
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 70px 70px;
+  position: relative;
+}
+
+.scoreDisplay {
+  margin-top: 25px;
+  font-size: 2em;
+  font-weight: bold;
+  color: #f9c74f;
+  text-shadow: 
+    2px 2px 4px rgba(0,0,0,0.5),
+    0 0 10px rgba(249, 199, 79, 0.5);
+  background: rgba(0,0,0,0.4);
+  padding: 15px 30px;
+  border-radius: 50px;
+  display: inline-block;
+  border: 2px solid rgba(249, 199, 79, 0.3);
+  transition: all 0.3s;
+}
+
+.comboDisplay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4em;
+  font-weight: bold;
+  color: #f9c74f;
+  text-shadow: 
+    0 0 15px #ff5722, 
+    0 0 30px #ff5722, 
+    0 0 45px #ff5722;
+  background: rgba(0,0,0,0.8);
+  padding: 25px 50px;
+  border-radius: 15px;
+  z-index: 1000;
+  animation: combo-pop 0.5s ease-out;
+  border: 2px solid rgba(249, 199, 79, 0.5);
+}
+
+@keyframes combo-pop {
+  0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
+  80% { transform: translate(-50%, -50%) scale(1.2); }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+.campaignContainer button {
+  background: linear-gradient(45deg, #e94560, #f9c74f);
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1.2em;
+  margin-top: 25px;
+  transition: all 0.3s;
+  box-shadow: 
+    0 5px 20px rgba(233, 69, 96, 0.5),
+    inset 0 1px 1px rgba(255,255,255,0.2);
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.campaignContainer button:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 10px 25px rgba(233, 69, 96, 0.7),
+    inset 0 1px 1px rgba(255,255,255,0.3);
+  filter: brightness(1.1);
+}
+
+/* Loading Container */
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top: 4px solid #ffd700;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

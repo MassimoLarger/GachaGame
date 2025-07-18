@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Game Lobby</title>
+  <link id="lobby-css" rel="stylesheet" href="../css/lobby.css" />
+  <link id="campaign-css" rel="stylesheet" href="../css/campaign.css" disabled />
+</head>
+<body>
+  <!-- Pantalla carga negra -->
+  <div id="loading-screen" style="
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: black;
+    opacity: 1;
+    z-index: 9999;
+    display: none;
+    transition: opacity 0.5s ease;
+  "></div>
+
+  <!-- Home Screen -->
+  <div id="home-screen" class="game-container">
+    <div class="overlay">
+      <h1 class="game-title">Revenge: Angels & Demons</h1>
+      <p class="start-text" id="startButton">Pulsa para iniciar</p>
+      <div class="server-selector">
+        <span>S0 - Beta</span>
+        <button>Pulsa para cambiar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lobby Screen -->
+  <div id="lobby-screen" class="game-lobby" style="display: none;">
+    <img class="background" src="../Background/Gacha.png" alt="Background"/>
+    <div class="top-bar">
+      <div id="header">
+        <div class="player-info">
+          <img src="../characters/face/Fimmergreen.png" alt="Avatar"/>
+          <span>Lvl 1</span>
+          <div class="player-details">
+            <span class="player-name">SasakiRyo</span>
+            <span class="vip-level">VIP 0</span>
+          </div>
+        </div>
+        <div class="currency-bar">
+          <div class="currency-item gold">
+            <span class="icon-gold">💰</span>
+            <span class="value">0</span>
+            <span class="add-button">+</span>
+          </div>
+          <div class="currency-item diamond">
+            <span class="icon-diamond">💎</span>
+            <span class="value">0</span>
+            <span class="add-button">+</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <img class="bg-character" src="../characters/BackgroundCharacter/BCimmergreen.png" alt="Main Character" />
+      <div class="menu-right">
+        <button id="vendingButton">Vending</button>
+        <button id="gachaButton">Gacha</button>
+        <button id="trainingButton">Training</button>
+      </div>
+      <div class="menu-bottom">
+        <button id="campaignButton">Campaign</button>
+      </div>
+    </div>
+
+    <div class="side-menu">
+      <button>Mission</button>
+      <button>Mail</button>
+      <button>Social</button>
+      <button>Ranking</button>
+    </div>
+
+    <div class="bottom-bar">
+      <button>Guild</button>
+      <button>Bag</button>
+      <button>Character</button>
+    </div>
+  </div>
+
+  <!-- Campaign Screen -->
+  <div id="campaign-screen" class="campaign-container" style="display: none;">
+    <h1>Bejeweled Adventure</h1>
+    <div id="stage-map">
+      <p>Complete levels to unlock new stages!</p>
+    </div>
+    <div id="game-area">
+      <h2>Level 1</h2>
+      <div class="box" draggable="false"></div>
+      <div id="score-display">Score: 0</div>
+      <div id="combo-display" style="display: none;">Combo x<span id="combo-count">1</span>!</div>
+    </div>
+    <button id="backToLobbyFromCampaign">Back to Lobby</button>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/ui.js"></script>
+  <script src="js/code.js"></script>
+</body>
+</html>

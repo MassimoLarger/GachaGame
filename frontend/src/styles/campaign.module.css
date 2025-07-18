@@ -1,0 +1,505 @@
+/* Estilos generales mejorados */
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #ecf0f1;
+    overflow-x: hidden;
+}
+
+/* Contenedor principal con efecto de vidrio */
+.campaignContainer {
+    text-align: center;
+    background: rgba(22, 33, 62, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.5);
+    max-width: 95%;
+    width: 850px;
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.campaignContainer::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(233, 69, 96, 0.1) 0%, transparent 70%);
+    animation: rotate-gradient 20s linear infinite;
+    z-index: -1;
+}
+
+@keyframes rotate-gradient {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Títulos con gradiente */
+.campaignContainer h1,
+.campaignContainer h2 {
+    background: linear-gradient(45deg, #e94560, #f9c74f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.campaignContainer h1 {
+    font-size: 2.8em;
+    margin-top: 0;
+    letter-spacing: 1px;
+}
+
+.campaignContainer h2 {
+    font-size: 2em;
+    margin-top: 5px;
+}
+
+/* Áreas de juego y mapa con efecto neón */
+.stageMap,
+.gameArea {
+    background-color: rgba(15, 52, 96, 0.7);
+    border: 3px solid #e94560;
+    padding: 25px;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    box-shadow: 
+        inset 0 0 15px rgba(0,0,0,0.5),
+        0 0 20px rgba(233, 69, 96, 0.3);
+    transition: all 0.3s ease;
+}
+
+.gameArea {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    position: relative;
+}
+
+/* Tablero del juego mejorado */
+.box {
+    width: 490px;
+    height: 490px;
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(10, 31, 51, 0.8);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 
+        inset 0 0 25px rgba(0,0,0,0.8),
+        0 10px 30px rgba(0,0,0,0.6);
+    background-image: 
+        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 70px 70px;
+    position: relative;
+}
+
+.boxRow {
+    display: flex;
+    height: 70px;
+    width: 100%;
+}
+
+.boxCell {
+    width: 70px;
+    height: 70px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255,255,255,0.03);
+    box-shadow: 
+        inset 0 0 15px rgba(0,0,0,0.4),
+        0 0 5px rgba(255,255,255,0.05);
+    transition: all 0.2s ease;
+}
+
+.boxCell:hover {
+    background-color: rgba(255,255,255,0.08);
+}
+
+.boxCellSelected {
+    box-shadow: 0 0 15px 3px rgba(255, 255, 255, 0.9);
+    z-index: 10;
+    background-color: rgba(255,255,255,0.1);
+}
+
+/* ------------------------- */
+/* ESTILOS DE GEMAS (COMPLETOS) */
+/* ------------------------- */
+.boxItemContainer {
+    width: 90%;
+    height: 90%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    perspective: 1000px;
+}
+
+.boxItem {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    box-shadow: 
+        0 6px 12px rgba(0,0,0,0.5),
+        inset 0 -12px 24px rgba(0,0,0,0.4);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-style: preserve-3d;
+    filter: brightness(1.1) saturate(1.2);
+}
+
+/* Efecto de brillo mejorado */
+.boxItem::after {
+    content: '';
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    width: 30%;
+    height: 30%;
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
+    border-radius: 50%;
+    filter: blur(3px);
+    transform: rotate(30deg);
+    animation: gem-glow 3s infinite alternate;
+}
+
+/* Clases específicas para cada gema */
+.boxItemRed { 
+    background-image: url('/Gems/Red_gem.png');
+    filter: drop-shadow(0 0 5px rgba(233, 69, 96, 0.7));
+}
+.boxItemOrange { 
+    background-image: url('/Gems/Orange_gem.png');
+    filter: drop-shadow(0 0 5px rgba(255, 152, 0, 0.7));
+}
+.boxItemYellow { 
+    background-image: url('/Gems/Yellow_gem.png');
+    filter: drop-shadow(0 0 5px rgba(255, 235, 59, 0.7));
+}
+.boxItemGreen { 
+    background-image: url('/Gems/Green_gem.png');
+    filter: drop-shadow(0 0 5px rgba(76, 175, 80, 0.7));
+}
+.boxItemBlue { 
+    background-image: url('/Gems/Blue_gem.png');
+    filter: drop-shadow(0 0 5px rgba(33, 150, 243, 0.7));
+}
+.boxItemPurple { 
+    background-image: url('/Gems/Purple_gem.png');
+    filter: drop-shadow(0 0 5px rgba(156, 39, 176, 0.7));
+}
+.boxItemWhite { 
+    background-image: url('/Gems/White_gem.png');
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7));
+}
+.boxItemRainbow { 
+    background-image: url('/Gems/Rainbow_gem.png');
+    animation: rainbow-glow 2.5s infinite;
+    filter: brightness(1.2);
+}
+
+/* Efectos de interacción mejorados */
+.boxItemContainer:hover .boxItem {
+    transform: scale(1.15) rotateY(20deg);
+    filter: brightness(1.3);
+}
+
+.boxItemSelected {
+    transform: scale(1.2) rotateY(0deg);
+    box-shadow: 
+        0 0 25px rgba(255,255,255,0.95),
+        0 8px 20px rgba(0,0,0,0.6);
+    z-index: 100;
+    filter: brightness(1.4) saturate(1.5);
+}
+
+/* ------------------------- */
+/* ANIMACIONES (COMPLETAS) */
+/* ------------------------- */
+@keyframes gem-glow {
+    0% { opacity: 0.7; transform: rotate(30deg) scale(0.9); }
+    100% { opacity: 1; transform: rotate(30deg) scale(1.1); }
+}
+
+@keyframes rainbow-glow {
+    0% { filter: drop-shadow(0 0 8px #ff5252) brightness(1.2); }
+    16% { filter: drop-shadow(0 0 8px #ff9800) brightness(1.2); }
+    33% { filter: drop-shadow(0 0 8px #ffeb3b) brightness(1.2); }
+    50% { filter: drop-shadow(0 0 8px #4caf50) brightness(1.2); }
+    66% { filter: drop-shadow(0 0 8px #2196f3) brightness(1.2); }
+    83% { filter: drop-shadow(0 0 8px #9c27b0) brightness(1.2); }
+    100% { filter: drop-shadow(0 0 8px #ff5252) brightness(1.2); }
+}
+
+@keyframes match-explosion {
+    0% { transform: scale(1); opacity: 1; filter: brightness(1.5); }
+    50% { transform: scale(1.6); opacity: 0.8; filter: brightness(2); }
+    100% { transform: scale(0); opacity: 0; }
+}
+
+@keyframes cross-pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.4); filter: brightness(1.8); }
+    100% { transform: scale(1); }
+}
+
+/* Animaciones de movimiento */
+.boxShiftLeft { animation: shift-left 0.4s ease-out; }
+.boxShiftRight { animation: shift-right 0.4s ease-out; }
+.boxShiftUp { animation: shift-up 0.4s ease-out; }
+.boxShiftDown { animation: shift-down 0.4s ease-out; }
+
+@keyframes shift-left {
+    from { transform: translateX(70px); }
+    to { transform: translateX(0); }
+}
+
+@keyframes shift-right {
+    from { transform: translateX(-70px); }
+    to { transform: translateX(0); }
+}
+
+@keyframes shift-up {
+    from { transform: translateY(70px); }
+    to { transform: translateY(0); }
+}
+
+@keyframes shift-down {
+    from { transform: translateY(-70px); }
+    to { transform: translateY(0); }
+}
+
+/* Animaciones de caída */
+.boxDrop70 { --drop-distance: -70px; animation: drop 0.4s ease-out; }
+.boxDrop140 { --drop-distance: -140px; animation: drop 0.5s ease-out; }
+.boxDrop210 { --drop-distance: -210px; animation: drop 0.6s ease-out; }
+.boxDrop280 { --drop-distance: -280px; animation: drop 0.7s ease-out; }
+.boxDrop350 { --drop-distance: -350px; animation: drop 0.8s ease-out; }
+.boxDrop420 { --drop-distance: -420px; animation: drop 0.9s ease-out; }
+.boxDrop490 { --drop-distance: -490px; animation: drop 1.0s ease-out; }
+.boxDrop560 { --drop-distance: -560px; animation: drop 1.1s ease-out; }
+
+@keyframes drop {
+    from { 
+        transform: translateY(var(--drop-distance)); 
+        opacity: 0.5;
+    }
+    to { 
+        transform: translateY(0); 
+        opacity: 1;
+    }
+}
+
+/* Animación para gemas nuevas */
+.boxSpawn {
+    animation: spawn-from-top 0.3s ease-out;
+}
+
+@keyframes spawn-from-top {
+    from { 
+        transform: translateY(-70px); 
+        opacity: 0;
+    }
+    to { 
+        transform: translateY(0); 
+        opacity: 1;
+    }
+}
+
+/* Botones mejorados con efecto neón */
+.campaignContainer button {
+    background: linear-gradient(45deg, #e94560, #f9c74f);
+    color: white;
+    border: none;
+    padding: 16px 32px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1.2em;
+    margin-top: 25px;
+    transition: all 0.3s;
+    box-shadow: 
+        0 5px 20px rgba(233, 69, 96, 0.5),
+        inset 0 1px 1px rgba(255,255,255,0.2);
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.campaignContainer button:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 10px 25px rgba(233, 69, 96, 0.7),
+        inset 0 1px 1px rgba(255,255,255,0.3);
+    filter: brightness(1.1);
+}
+
+.campaignContainer button:active {
+    transform: translateY(2px);
+    box-shadow: 
+        0 3px 15px rgba(233, 69, 96, 0.5),
+        inset 0 1px 1px rgba(255,255,255,0.1);
+}
+
+.campaignContainer button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to bottom right,
+        rgba(255,255,255,0) 45%,
+        rgba(255,255,255,0.15) 50%,
+        rgba(255,255,255,0) 55%
+    );
+    transform: rotate(45deg);
+    transition: all 0.6s;
+}
+
+.campaignContainer button:hover::after {
+    left: 100%;
+    top: 100%;
+}
+
+/* Puntuación mejorada */
+.scoreDisplay {
+    margin-top: 25px;
+    font-size: 2em;
+    font-weight: bold;
+    color: #f9c74f;
+    text-shadow: 
+        2px 2px 4px rgba(0,0,0,0.5),
+        0 0 10px rgba(249, 199, 79, 0.5);
+    background: rgba(0,0,0,0.4);
+    padding: 15px 30px;
+    border-radius: 50px;
+    display: inline-block;
+    border: 2px solid rgba(249, 199, 79, 0.3);
+    transition: all 0.3s;
+}
+
+.scoreDisplay:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(249, 199, 79, 0.3);
+}
+
+/* Combo display mejorado */
+.comboDisplay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4em;
+    font-weight: bold;
+    color: #f9c74f;
+    text-shadow: 
+        0 0 15px #ff5722, 
+        0 0 30px #ff5722, 
+        0 0 45px #ff5722;
+    background: rgba(0,0,0,0.8);
+    padding: 25px 50px;
+    border-radius: 15px;
+    z-index: 1000;
+    animation: combo-pop 0.5s ease-out;
+    display: none;
+    border: 2px solid rgba(249, 199, 79, 0.5);
+}
+
+@keyframes combo-pop {
+    0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
+    80% { transform: translate(-50%, -50%) scale(1.2); }
+    100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+.scorePop {
+    animation: score-pop 0.3s ease-out;
+}
+
+@keyframes score-pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+}
+
+/* Shuffle message mejorado */
+.shuffleMessage {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #e94560;
+    padding: 25px 50px;
+    border-radius: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    z-index: 1000;
+    animation: shuffle-message 2s ease-out;
+    text-shadow: 0 0 10px rgba(233, 69, 96, 0.7);
+    border: 2px solid #e94560;
+    box-shadow: 0 0 30px rgba(233, 69, 96, 0.5);
+}
+
+@keyframes shuffle-message {
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+    20% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+    80% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+    100% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+}
+
+/* Efectos de partículas para gemas */
+.gemParticle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 500;
+    animation: particle-fade 1s ease-out forwards;
+}
+
+@keyframes particle-fade {
+    0% { 
+        transform: translate(0, 0) scale(1); 
+        opacity: 1;
+    }
+    100% { 
+        transform: translate(var(--tx), var(--ty)) scale(0); 
+        opacity: 0;
+    }
+}
+
+@keyframes hintPulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.7; }
+}
+
+.hintPulse {
+    animation: hintPulse 0.6s ease-in-out infinite;
+}

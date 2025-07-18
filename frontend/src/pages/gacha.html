@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vending - Gacha</title>
+  <link rel="stylesheet" href="../css/main.css"/>
+</head>
+<body>
+  <div class="gacha-page-container">
+    <!-- HUD Superior -->
+    <div class="top-bar">
+      <div id="header">
+        <div class="player-info">
+          <img src="../characters/face/Fimmergreen.png" alt="Avatar"/>
+          <span>Lvl 1</span>
+          <div class="player-details">
+            <span class="player-name">SasakiRyo</span>
+            <span class="vip-level">VIP 0</span>
+          </div>
+        </div>
+        <div class="currency-bar">
+          <div class="currency-item gold">
+            <span class="icon-gold"> 💰 </span>
+            <span class="value"> 0 </span>
+            <span class="add-button"> + </span>
+          </div>
+          <div class="currency-item diamond">
+            <span class="icon-diamont"> 💎 </span>
+            <span class="value"> 0 </span>
+            <span class="add-button"> + </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="vending-container">
+      <!-- Fondo personaje -->
+      <img class="background" src="../Background/Gacha.png" alt="Background"/>
+
+      <!-- Panel lateral de personaje -->
+      <div class="character-panel">
+        <img src="../characters/BackgroundCharacter/BCimmergreen.png" alt="Girl" class="character-img"/>
+        <div class="speech-bubble">
+          "I'm not a hag. I'm ancient, it's different."
+        </div>
+      </div>
+
+      <!-- Contenedor del panel y botón -->
+      <div class="gacha-panel-container">
+        <div class="gacha-panel">
+          <h2><span class="highlight">S</span> Gacha </h2>
+          <p class="subtitle">Newest Girl</p>
+          <div class="gacha-girl">
+            <img src="../characters/face/Fimmergreen.png" alt="Cecilia"/>
+            <p><strong>Cecilia Immergreen</strong><br>Midlane magic dps, able to deal insane burst damage.</p>
+          </div>
+
+          <div class="free-section">
+            <p><strong>Free Battle Girl/Item</strong></p>
+            <p>Free Times: <span class="free-times">5/5</span></p>
+            <button class="btn free">Free</button>
+          </div>
+
+          <div class="buy-section">
+            <button class="btn buy-one">Buy 1</button>
+            <div class="buy-ten">
+              <span class="discount">10% off</span>
+              <p class="price">90000</p>
+              <button class="btn buy-ten-btn">Buy 10</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Botón debajo del panel -->
+        <button id="backToLobbyGacha">Volver al Lobby</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const backToLobbyButton = document.getElementById('backToLobbyGacha');
+      backToLobbyButton.addEventListener('click', () => {
+        window.location.href = 'lobby.html';
+      });
+    });
+  </script>
+</body>
+</html>

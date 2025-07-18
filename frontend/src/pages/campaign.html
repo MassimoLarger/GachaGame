@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bejeweled Campaign</title>
+  <link rel="stylesheet" href="../css/campaign.css">
+</head>
+<body>
+  <div class="campaign-container">
+    <h1>Bejeweled Adventure</h1>
+    <div id="stage-map">
+      <p>Complete levels to unlock new stages!</p>
+    </div>
+    <div id="game-area">
+      <h2>Level 1</h2>
+      <div class='box' draggable='false'></div>
+      <div id="score-display">Score: 0</div>
+      <div id="combo-display" style="display: none;">Combo x<span id="combo-count">1</span>!</div>
+    </div>
+    <button id="backToLobby">Back to Lobby</button>
+  </div>
+
+  <script src="js/code.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const backToLobbyButton = document.getElementById('backToLobby');
+      backToLobbyButton.addEventListener('click', () => {
+        window.location.href = 'lobby.html';
+      });
+    });
+  </script>
+</body>
+</html>
