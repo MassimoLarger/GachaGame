@@ -5,6 +5,7 @@ const rateLimit = require('express-rate-limit');
 require('dotenv').config();
 
 const connectDB = require('./config/database');
+const ensureDBConnection = require('./middleware/dbConnection');
 const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/user');
 const gachaRoutes = require('./routes/gacha');
@@ -13,8 +14,8 @@ const errorHandler = require('./middleware/errorHandler');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Connect to MongoDB
-connectDB();
+// Connect to MongoDB (handled per request in serverless)
+// connectDB() will be called in middleware for serverless compatibility
 
 // Rate limiting
 const limiter = rateLimit({
@@ -29,6 +30,9 @@ app.use(cors());
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
 app.use(limiter);
+
+// Database connection middleware for serverless
+app.use(ensureDBConnection);
 
 // Routes
 app.use('/api/auth', authRoutes);
